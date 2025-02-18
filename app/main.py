@@ -32,9 +32,23 @@ class Notebook:
         note = Note(str(code), title, text, importance)
         self.notes.append(note)
         return code
-    def delete_note(self, code:int):
+
+    def delete_note(self, code: int):
         self.notes = [note for note in self.notes if note.code != str(code)]
 
     def important_notes(self):
+        return [note for note in self.notes if note.importance in (Note.HIGH, Note.MEDIUM)]
+
+    def notes_by_tag(self, tag: str):
+        return [note for note in self.notes if tag in note.tags]
+
+    def tag_whit_most_notes(self):
+        tag_count = {}
+        for note in self.notes:
+            for tag in note.tags:
+                tag_count[tag] = tag_count.get(tag, 0) + 1
+        if not tag_count:
+            return None
+        return
 
 
