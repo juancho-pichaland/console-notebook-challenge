@@ -29,4 +29,12 @@ class Notebook:
 
     def add_notes(self, title: str, text: str, importance: str) -> int:
         code = len(self.notes) + 1
-        note = Note(str(code))
+        note = Note(str(code), title, text, importance)
+        self.notes.append(note)
+        return code
+    def delete_note(self, code:int):
+        self.notes = [note for note in self.notes if note.code != str(code)]
+
+    def important_notes(self):
+
+
