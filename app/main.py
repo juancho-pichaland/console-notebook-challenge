@@ -1,6 +1,5 @@
 import datetime
 
-
 class Note:
     HIGH = "HIGH"
     MEDIUM = "MEDIUM"
